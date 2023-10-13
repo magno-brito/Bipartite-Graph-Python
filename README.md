@@ -1,5 +1,9 @@
 # Bipartite-Graph-Python
 
+## Bipartite Graph
+
+<em> [In the mathematical field of graph theory, a bipartite graph (or bigraph) is a graph whose vertices can be divided into two disjoint and independent sets U and V, that is, every edge connects a vertex in U to one in V. Vertex sets U and V are usually called the parts of the graph](https://en.wikipedia.org/wiki/Bipartite_graph). </em>
+
 ## The Problem
 
 <em>If there are J jobs and A applicants and each applicant can do some jobs, how can we to asign these jobs to the applicats so that the maximum applicants get the 
