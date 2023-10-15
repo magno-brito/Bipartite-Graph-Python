@@ -1,41 +1,11 @@
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy as np
+"""Existem M candidatos a emprego e N empregos. Cada candidato tem um subconjunto de empregos nos quais está interessado. Cada vaga de emprego só pode aceitar um candidato e um candidato pode ser nomeado para apenas um emprego. Encontre uma atribuição de empregos aos candidatos de forma que o maior número possível de candidatos consiga empregos.
+
+https://gurobi-optimization-gurobi-optimods.readthedocs-hosted.com/en/latest/mods/bipartite-matching.html
+
+"""
 
 
-G = nx.Graph()
-# G = nx.DiGraph()
-# G = nx.MultiGraph()
-# G = nx.MultiDiGraph()
-# G.add_edge(1,2)
-# G.add_edge(2,3, weight=0.9)
-# G.add_edge("A","B")
-# G.add_edge("A","B")
-# G.add_edge("A","A")
-# G.add_node("C")
+from Grafo_arquivo import Grafo_arquivo
 
-#We can use a list to create a graph
-# edge_list = [(1,2),(2,3),(3,4),(4,4)]
-# G = nx.from_edgelist(edge_list)
-
-# print(nx.adjacency_matrix(G))
-
-# G = nx.from_numpy_array(np.array(
-#     [
-#         [0,1,0],
-#         [1,1,1],
-#         [0,0,0]
-#     ]
-# ))
-
-# edge_list = [(1,2),(2,3),(3,4),(4,4),(4,5),(5,5),(5,1),(5,2),(5,3)]
-# G = nx.from_edgelist(edge_list)
-
-# nx.draw_spring(G,with_labels=True)
-# plt.show()
-
-# G = nx.complete_graph(10)
-# nx.draw(G, with_labels = True)
-
-# plt.show()
-
+grafo = Grafo_arquivo("file.txt").gerar_arquivo()
+print(grafo[0][0])
