@@ -1,5 +1,10 @@
+#Done ->
 #Create a graph
 #Verify wether a graph is bipartite or not
+
+#To Do ->
+#Read the txt file and create a graph
+#Given the vertices, return the best matching
 
 from collections import deque
 
@@ -61,8 +66,6 @@ class Grafo:
     
 
 g = Grafo(5)
-
-
 
 
 
