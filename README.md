@@ -17,3 +17,7 @@ job?</em>
 
 
 [You can see more information about the bipartite graph here.](https://tutorialhorizon.com/algorithms/maximum-bipartite-matching-problem-java/)
+
+## Results
+![image](https://github.com/magno-brito/Bipartite-Graph-Python/assets/84158231/b9270e0f-0512-41f6-aa2b-dfd8e93501b7)
+
