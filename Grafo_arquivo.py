@@ -1,14 +1,11 @@
-class Grafo_arquivo:
-    def __init__(self, arquivo):
-        self.arquivo = arquivo
-        
-    def gerar_arquivo(self):
-        f = open(self.arquivo,"r")
-        lines = f.read().split("\n")
-        vetor = list()
-        for i in lines:
-            vetor.append(i.split(" "))
-        for i in range(len(vetor)):
-            for k in range(len(vetor[i])):
-                vetor[i][k] = int(vetor[i][k])
-        return vetor
+def simbolo(arquivo):
+    empresas = {}
+    with open("file.txt") as f:
+     texto = f.read()
+     for i in range(len(texto.split("\n")) - 1) :
+        empresas.setdefault(texto.split("\n")[i].strip().replace('\t',''),texto.split("\n")[i+1].strip().replace('\t',''))
+    return empresas
+
+
+empresas = simbolo("nasdaq.txt")
+print(empresas)
