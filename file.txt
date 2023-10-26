@@ -1,4 +1,4 @@
-A - 1 3
-B - 3
-C - 2 4
-D - 1 5
+Juca - Java Python
+Ludimilo - Python
+Maria - C# C++
+Obito - Java PHP
