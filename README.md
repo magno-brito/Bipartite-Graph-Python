@@ -19,5 +19,7 @@ job?</em>
 [You can see more information about the bipartite graph here.](https://tutorialhorizon.com/algorithms/maximum-bipartite-matching-problem-java/)
 
 ## Results
-![image](https://github.com/magno-brito/Bipartite-Graph-Python/assets/84158231/b9270e0f-0512-41f6-aa2b-dfd8e93501b7)
+
+<img src="https://github.com/magno-brito/Bipartite-Graph-Python/assets/84158231/27724da9-d821-4fb3-93c4-19864499881a" width="70%" height="70%">
+
 
