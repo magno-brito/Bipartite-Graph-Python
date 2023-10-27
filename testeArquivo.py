@@ -50,7 +50,7 @@ for key, values in dicionario.items():
         print(key, values)
         G.add_edge(key, value)
 
-corA = "#11A9FA"
+corA = "white"
 corB = "white"
 
 pos = nx.bipartite_layout(G, conjunto1)
@@ -58,14 +58,14 @@ plt.figure(figsize=(8,6))
 
 for node in conjunto2:
     if node == "Python":
-        image_path = "python.png".format(node) 
+        image_path = "languages/python.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
         ab = AnnotationBbox(imagebox, pos[node], frameon=False)
         plt.gca().add_artist(ab)
     elif node == "Java":
-        image_path = "java.png".format(node) 
+        image_path = "languages/java.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -73,7 +73,7 @@ for node in conjunto2:
         plt.gca().add_artist(ab)
 
     elif node == "PHP":
-        image_path = "php.png".format(node) 
+        image_path = "languages/php.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -81,7 +81,7 @@ for node in conjunto2:
         plt.gca().add_artist(ab)
     
     elif node == "C#":
-        image_path = "c#.png".format(node) 
+        image_path = "languages/c#.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -89,7 +89,7 @@ for node in conjunto2:
         plt.gca().add_artist(ab)
     
     elif node == "C++":
-        image_path = "c++.png".format(node) 
+        image_path = "languages/c++.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -99,7 +99,7 @@ for node in conjunto2:
 for node in conjunto1:
 
     if node == "Juca":
-        image_path = "Pessoas/juca.png".format(node) 
+        image_path = "people/juca.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -107,7 +107,7 @@ for node in conjunto1:
         plt.gca().add_artist(ab)
 
     elif node == "Ludimilo":
-        image_path = "Pessoas/ludimilo.png".format(node) 
+        image_path = "people/ludimilo.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -115,7 +115,7 @@ for node in conjunto1:
         plt.gca().add_artist(ab)
 
     elif node == "Maria":
-        image_path = "Pessoas/maria.png".format(node) 
+        image_path = "people/maria.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
@@ -123,20 +123,14 @@ for node in conjunto1:
         plt.gca().add_artist(ab)
     
     elif node == "Obito":
-        image_path = "Pessoas/obito.png".format(node) 
+        image_path = "people/obito.png".format(node) 
         image = plt.imread(image_path)
         imagebox = OffsetImage(image, zoom=0.4)
         imagebox.image.axes = plt.gca()
         ab = AnnotationBbox(imagebox, pos[node], frameon=False)
         plt.gca().add_artist(ab)
     
-    elif node == "C++":
-        image_path = "c++.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
+   
 
 nx.draw(G, pos, with_labels=False,  node_size=3000, node_color = [corA if node in conjunto1 else corB for node in G.nodes()], font_size=12, width=1.5, edge_color= "#359B14")
 plt.show()
