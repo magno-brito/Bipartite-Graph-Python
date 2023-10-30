@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 from matplotlib.cbook import get_sample_data
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 
+from matplotlib.animation import FuncAnimation
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+
 
 
 f = open("file.txt")
@@ -23,7 +26,6 @@ for item in vetor:
 
 
 lista = list(dicionario.keys())
-
 
 
 #-------------------------------------------------#
@@ -56,81 +58,51 @@ corB = "white"
 pos = nx.bipartite_layout(G, conjunto1)
 plt.figure(figsize=(8,6))
 
-for node in conjunto2:
-    if node == "Python":
-        image_path = "languages/python.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
-    elif node == "Java":
-        image_path = "languages/java.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
 
-    elif node == "PHP":
-        image_path = "languages/php.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
+for node in conjunto2:
+    path = "languages/" + node.lower() + ".png"
+    image_path = path.format(node) 
+    image = plt.imread(image_path)
+    imagebox = OffsetImage(image, zoom=0.4)
+    imagebox.image.axes = plt.gca()
+    ab = AnnotationBbox(imagebox, pos[node], frameon=False)
+    plt.gca().add_artist(ab)
     
-    elif node == "C#":
-        image_path = "languages/c#.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
-    
-    elif node == "C++":
-        image_path = "languages/c++.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
 
 for node in conjunto1:
+    path = "people/" + node.lower() + ".png"
+    image_path = path.format(node) 
+    image = plt.imread(image_path)
+    imagebox = OffsetImage(image, zoom=0.4)
+    imagebox.image.axes = plt.gca()
+    ab = AnnotationBbox(imagebox, pos[node], frameon=False)
+    plt.gca().add_artist(ab)
 
-    if node == "Juca":
-        image_path = "people/juca.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
 
-    elif node == "Ludimilo":
-        image_path = "people/ludimilo.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
+connection_colors = {
+    "Python": "Blue",
+    "Java" : "Green",
+    "PHP" : "Red",
+    "C#" : "Purple",
+    "C++": "Orange"
+}   
 
-    elif node == "Maria":
-        image_path = "people/maria.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
-    
-    elif node == "Obito":
-        image_path = "people/obito.png".format(node) 
-        image = plt.imread(image_path)
-        imagebox = OffsetImage(image, zoom=0.4)
-        imagebox.image.axes = plt.gca()
-        ab = AnnotationBbox(imagebox, pos[node], frameon=False)
-        plt.gca().add_artist(ab)
-    
-   
+edge_colors = [connection_colors[dicionario[u][dicionario[u].index(v)]] for u, v in G.edges()]
 
-nx.draw(G, pos, with_labels=False,  node_size=3000, node_color = [corA if node in conjunto1 else corB for node in G.nodes()], font_size=12, width=1.5, edge_color= "#359B14")
+nx.draw(
+    G,
+    pos,
+    with_labels=False,
+    node_size=3000,
+    node_color=[corA if node in conjunto1 else corB for node in G.nodes()],
+    font_size=12,
+    width=1.5,
+    edge_color=edge_colors
+)
 plt.show()
+
+
+
+
+
+
