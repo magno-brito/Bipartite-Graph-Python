@@ -8,14 +8,20 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
 
-f = open("file.txt")
+f = open("arquivos/file1.txt")
 lines = f.read().split("\n")
 vetor = list()
+
 for i in lines:
     vetor.append(i.split("-"))
 
-for i in range(len(vetor)):
-    vetor[i][1] = vetor[i][1].split()
+print(vetor)
+
+
+for i in range(0,len(vetor)):
+    print(i)
+    if vetor[i][1]:
+        vetor[i][1] = vetor[i][1].split()
 
 
 dicionario = dict()

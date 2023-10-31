@@ -18,7 +18,7 @@ https://gurobi-optimization-gurobi-optimods.readthedocs-hosted.com/en/latest/mod
 """
 
 
-from Grafo_arquivo import Grafo_arquivo
+from Garbage.Grafo_arquivo import Grafo_arquivo
 from Solucao import GFG
 import numpy as np
 import networkx as nx
