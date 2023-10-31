@@ -62,12 +62,9 @@ class Grafo:
             if all_node not in color:
                 if not dfs(all_node, True):
                     return False
-        return True
-    
+        return True  
 
 g = Grafo(5)
-
-
 
 
 grafo1 = [[1, 3], [0, 2], [1, 3], [0, 2]]

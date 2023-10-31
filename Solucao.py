@@ -1,5 +1,4 @@
 
-
 class GFG:
 	def __init__(self,graph):
 		self.graph = graph 
@@ -36,8 +35,9 @@ bpGraph =[[0, 1, 1, 0, 0, 0],
 		[0, 0, 0, 0, 0, 1]]
 
 grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
+grafo2 = [[1,1,0,0,0],[0,1,0,0,0],[0,0,1,1,0],[1,0,0,0,1]]
 
-g = GFG(grafo1)
+g = GFG(grafo2)
 
 print ("Maximum number of applicants that can get job is  ")
 print(g.maxBPM())
