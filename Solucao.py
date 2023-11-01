@@ -35,11 +35,33 @@ bpGraph =[[0, 1, 1, 0, 0, 0],
 		[0, 0, 0, 0, 0, 1]]
 
 grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
-grafo2 = [[1,1,0,0,0],[0,1,0,0,0],[0,0,1,1,0],[1,0,0,0,1]]
+
+grafo2 = [["Java","Python",0,0,0],[0,"Python",0,0,0],[0,0,"C#","C++",0],["Java",0,0,0,"PHP"]]
 
 g = GFG(grafo2)
+
+
 
 print ("Maximum number of applicants that can get job is  ")
 print(g.maxBPM())
 
-# This code is contributed by Neelam Yadav
+
+#-----------------------------------------
+linguagens = ["Java", "Python", "C#", "C++", "PHP"]
+pessoas = ["Juca", "Ludimilo","Maria","Obito"]
+
+dicionario = dict()
+
+for i in range(len(pessoas)):
+	for k in g.maxBPM():
+		if i == k:
+			dicionario[pessoas[i]] = linguagens[g.maxBPM().index(k)]
+
+print(dicionario)
+
+
+	
+
+
+
+
