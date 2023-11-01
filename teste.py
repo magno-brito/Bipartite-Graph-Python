@@ -1,3 +1,6 @@
+# Python program to find 
+# maximal Bipartite matching.
+ 
 class GFG:
     def __init__(self,graph):
          
@@ -53,17 +56,21 @@ class GFG:
             # Find if the applicant 'u' can get a job
             if self.bpm(i, matchR, seen):
                 result += 1
+        print(matchR)
         return result
  
  
-bpGraph =[[0, 1, 1, 0, 0, 0],
+grafo1 =[[0, 1, 1, 0, 0, 0],
           [1, 0, 0, 1, 0, 0],
           [0, 0, 1, 0, 0, 0],
           [0, 0, 1, 1, 0, 0],
           [0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 1]]
+
+grafo2 = [[1,1,0,0,0],[0,1,0,0,0],[0,0,1,1,0],[1,0,0,0,1]]
+
  
-g = GFG(bpGraph)
+g = GFG(grafo2)
  
 print ("Maximum number of applicants that can get job is %d " % g.maxBPM())
  

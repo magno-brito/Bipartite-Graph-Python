@@ -8,7 +8,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
 
-f = open("arquivos/file1.txt")
+f = open("archives/result.txt")
 lines = f.read().split("\n")
 vetor = list()
 
@@ -35,6 +35,7 @@ lista = list(dicionario.keys())
 
 
 #-------------------------------------------------#
+dicionarioTest = {'Juca': 'Java', 'Ludimilo': 'Python', 'Maria': 'C#', 'Obito': 'PHP'}
 
 G = nx.Graph()
 conjunto1 = list(dicionario.keys())
@@ -105,6 +106,8 @@ nx.draw(
     width=1.5,
     edge_color=edge_colors
 )
+print(conjunto1)
+print(conjunto2)
 plt.show()
 
 
