@@ -42,7 +42,7 @@ g = GFG(grafo2)
 
 
 
-print ("Maximum number of applicants that can get job is  ")
+print ("Combinação")
 print(g.maxBPM())
 
 
