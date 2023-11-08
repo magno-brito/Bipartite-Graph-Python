@@ -8,7 +8,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
 
-f = open("archives/result.txt")
+f = open("archives/file.txt")
 lines = f.read().split("\n")
 vetor = list()
 
