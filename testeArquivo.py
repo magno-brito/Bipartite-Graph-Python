@@ -2,8 +2,6 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.cbook import get_sample_data
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
-
-from matplotlib.animation import FuncAnimation
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
