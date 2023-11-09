@@ -25,8 +25,6 @@ root.title("Embedding in Tk")
 #call fig ax exactly once
 fig = Figure(figsize=(5, 4), dpi=100)
 ax = fig.add_subplot(111)
-
-
 ax.margins(0.11)
 
 #------------------------------------------------------------------
