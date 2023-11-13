@@ -1,4 +1,6 @@
-Juca - Java 
-Ludimilo - Python
-Maria - C# 
-Obito - PHP
+A - C#
+B - Python
+C - Java
+D - C++
+E - PHP
+G - Js
