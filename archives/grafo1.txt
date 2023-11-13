@@ -1,0 +1,8 @@
+A - Java Python C#
+B - Java Python
+C - Java
+D - Python C++
+E - C# C++ PHP Js 
+F - C++
+G - Js 
+H - PHP Js
