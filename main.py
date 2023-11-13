@@ -10,6 +10,8 @@ import numpy as np
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image, ImageTk
+from mpl_toolkits.mplot3d import Axes3D
+
 
 
 
@@ -43,6 +45,7 @@ canvas2.grid(row=1, column=10)
 canvas2.create_window(10,20, anchor="nw")
 
 
+
 #-----------------------------Funções--------------------------------------
 
 def put_canvas1(elemento, x, y):
@@ -53,13 +56,14 @@ def monstrar_problema():
     if not data_addedLabel:
         label = customtkinter.CTkLabel(
             root,
-            font=("Arial", 25),
+            font=("Arial", 18),
             bg_color="white",
             text_color="blue",
-            text="Se houver empregos J e candidatos A e cada  candidato puder\n fazer alguns trabalhos, como podemos atribuir esses empregos aos\n candidatos para que o máximo de candidatos obtenha o trabalho"
+           
+            text="Existem M candidatos a uma vaga de   emprego e N empresas com vagas disponíveis buscando candidatos que saibam \n programar  em uma linguagem  específica. Cada candidato tem um  subconjunto de empregos/linguagens nos \n quais está interessado."
 
         )
-        canvas2.create_window(200,10, anchor="nw", window=label)
+        canvas2.create_window(40,40, anchor="w", window=label)
         data_addedLabel = True
 
 def mostrar_grafo():
@@ -250,7 +254,56 @@ def mostra_problema_antes_solucao(arquivo):
     canvas_widget.grid(row=0, column=0)
     canvas2.create_window(center_x, center_y, window=canvas_widget)
 
+
 #------------------------------------------------------------------------#
+def desenhar_3D():
+    # The graph to visualize
+    m, n = 10, 15
+    G = nx.complete_bipartite_graph(m, n)
+    # 3d spring layout
+    pos = nx.spring_layout(G, dim=3, seed=779)
+    # Extract node and edge positions from the layout
+    node_xyz = np.array([pos[v] for v in sorted(G)])
+    edge_xyz = np.array([(pos[u], pos[v]) for u, v in G.edges()])
+
+    # Create the 3D figure
+    fig = plt.figure(figsize=(8, 8), dpi=100)  # Adjust the size as needed
+    ax = fig.add_subplot(111, projection="3d")
+
+    # Plot the nodes - alpha is scaled by "depth" automatically
+    ax.scatter(*node_xyz.T, s=100, ec="w")
+
+    # Plot the edges
+    for vizedge in edge_xyz:
+        ax.plot(*vizedge.T, color="tab:gray")
+
+    def _format_axes(ax):
+        """Visualization options for the 3D axes."""
+        # Turn gridlines off
+        ax.grid(False)
+        # Suppress tick labels
+        for dim in (ax.xaxis, ax.yaxis, ax.zaxis):
+            dim.set_ticks([])
+        # Set axes labels
+        ax.set_xlabel("x")
+        ax.set_ylabel("y")
+        ax.set_zlabel("z")
+
+    _format_axes(ax)
+    fig.tight_layout()
+
+    # Create a FigureCanvasTkAgg widget
+    canvas = FigureCanvasTkAgg(fig, master=canvas2)
+    canvas.draw()
+
+    # Get the tkinter canvas widget
+    canvas_widget = canvas.get_tk_widget()
+
+    # Place the 3D plot inside canvas2
+    canvas2.create_window(100, 10, anchor="nw", window=canvas_widget)
+
+#------------------------------------------------------------------------#
+
 
 
 def limpar_canva():
@@ -324,10 +377,21 @@ botaoE = customtkinter.CTkButton(
     height=30,
     hover_color="green",
     text="Solução",
-    command= lambda: mostra_problema_antes_solucao("grafo1")
+    command= lambda: mostra_problema_antes_solucao("result")
    )
 
 put_canvas1(botaoE,50, 320)
+
+botaoF = customtkinter.CTkButton(
+    root, 
+    width=130,
+    height=30,
+    hover_color="green",
+    text="Grafo 3D",
+    command= lambda: desenhar_3D()
+   )
+
+put_canvas1(botaoF,50, 380)
 
 
 botaoLimpar = customtkinter.CTkButton(

@@ -46,21 +46,21 @@ grafo3 = [
   	[0,0,"C\#","C++","PHP","Js"],
 	[0,0,0,"C++",0,0],
 	[0,0,0,0,0,"Js"], 
-	[0,0,0,0,"PHP","Js"]]
+	[0,0,0,0,"PHP","Js"]
+	]
 
-#Java Python C# C++ PHP Js
+# Ordem das linguagens -> Java Python C# C++ PHP Js
+# Cada indice do vetor grafo3 corresponde a uma pessoa: index[0] = a; index[1] = b
 
 g = GFG(grafo3)
-
-
 
 print ("Combinação")
 print(g.maxBPM())
 
 
 #-----------------------------------------
-linguagens = ["Java", "Python", "C#", "C++", "PHP"]
-pessoas = ["Juca", "Ludimilo","Maria","Obito"]
+linguagens = ["Java", "Python", "C#", "C++", "PHP", "Js"]
+pessoas = ["A", "B","C","D","E","F","G","H"]
 
 dicionario = dict()
 
