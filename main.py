@@ -190,7 +190,7 @@ def mostra_problema_antes_solucao(arquivo):
     pos.update((x, y * 4.5) for x, y in pos.items() if x in conjunto1)
 
     
-    fig, ax = plt.subplots(figsize=(8, 8), dpi=100)
+    fig, ax = plt.subplots(figsize=(9, 9), dpi=100)
     ax.margins(0.11)
 
 
@@ -226,7 +226,7 @@ def mostra_problema_antes_solucao(arquivo):
         pos=pos,
         ax=ax,
         with_labels=False,
-        node_size=2000,
+        node_size=3000,
         node_color=[corA if node in conjunto1 else corB for node in G.nodes()],
         font_size=12,
         width=1.5,
@@ -301,8 +301,8 @@ botaoC = customtkinter.CTkButton(
     root, 
     width=130,
     height=30,
-    text="Grafo final",
-    command=mostrar_grafo,
+    text="Grafo Simples",
+    command= lambda:mostra_problema_antes_solucao("grafo0"),
     hover_color="green")
 
 put_canvas1(botaoC,50, 200)
@@ -313,8 +313,8 @@ botaoD = customtkinter.CTkButton(
     width=130,
     height=30,
     hover_color="green",
-    text="Grafo Simples",
-    command= lambda:mostra_problema_antes_solucao("grafo0"))
+    text="Grafo Maior",
+    command= lambda:mostra_problema_antes_solucao("grafo1"))
 
 put_canvas1(botaoD,50, 260)
 
@@ -323,7 +323,7 @@ botaoE = customtkinter.CTkButton(
     width=130,
     height=30,
     hover_color="green",
-    text="Grafo Maior",
+    text="Solução",
     command= lambda: mostra_problema_antes_solucao("grafo1")
    )
 

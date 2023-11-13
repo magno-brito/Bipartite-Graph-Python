@@ -38,7 +38,19 @@ grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
 
 grafo2 = [["Java","Python",0,0,0],[0,"Python",0,0,0],[0,0,"C#","C++",0],["Java",0,0,0,"PHP"]]
 
-g = GFG(grafo2)
+grafo3 = [ 
+	["Java","Python","C#", 0, 0, 0], 
+	["Java","Python",0,0,0,0],
+	["Java",0,0,0,0,0],
+	[0,"Python",0, "C++",0,0], 
+  	[0,0,"C\#","C++","PHP","Js"],
+	[0,0,0,"C++",0,0],
+	[0,0,0,0,0,"Js"], 
+	[0,0,0,0,"PHP","Js"]]
+
+#Java Python C# C++ PHP Js
+
+g = GFG(grafo3)
 
 
 
