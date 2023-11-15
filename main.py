@@ -14,15 +14,13 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 
-
-
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("dark-blue")
 
 root = customtkinter.CTk()
 
-root.title("Magno estudando pra entender")
-root.geometry("600x350")
+root.title("Magno e Sofia")
+root.geometry("1366x768")
 
 data_addedLabel = data_addedSolucao = data_addedProblema = False
 
@@ -355,7 +353,7 @@ botaoC = customtkinter.CTkButton(
     width=130,
     height=30,
     text="Grafo Simples",
-    command= lambda:mostra_problema_antes_solucao("grafo0"),
+    command= lambda:mostra_problema_antes_solucao("grafoMenor"),
     hover_color="green")
 
 put_canvas1(botaoC,50, 200)
@@ -367,7 +365,7 @@ botaoD = customtkinter.CTkButton(
     height=30,
     hover_color="green",
     text="Grafo Maior",
-    command= lambda:mostra_problema_antes_solucao("grafo1"))
+    command= lambda:mostra_problema_antes_solucao("grafoMaior"))
 
 put_canvas1(botaoD,50, 260)
 

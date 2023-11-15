@@ -23,6 +23,8 @@ class GFG:
 			seen = [False] * self.jobs
 			if self.bpm(i, matchR, seen):
 				result += 1
+				print(seen)
+		print(matchR)
 		
 		return matchR
 
@@ -38,7 +40,14 @@ grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
 
 grafo2 = [["Java","Python",0,0,0],[0,"Python",0,0,0],[0,0,"C#","C++",0],["Java",0,0,0,"PHP"]]
 
-grafo3 = [ 
+grafo3 = [
+	["Pyhont", 0, "C++"], 
+	["Python","Java","C++"],
+	["Python","Java",0],
+	[0,"Java","C++"]
+	]
+
+grafo4 = [ 
 	["Java","Python","C#", 0, 0, 0], 
 	["Java","Python",0,0,0,0],
 	["Java",0,0,0,0,0],
@@ -60,14 +69,15 @@ print(g.maxBPM())
 
 #-----------------------------------------
 linguagens = ["Java", "Python", "C#", "C++", "PHP", "Js"]
-pessoas = ["A", "B","C","D","E","F","G","H"]
+pessoas1 = ["A", "B","C","D","E","F","G","H", "Juca","Ludimilo","Maria","Obito"]
+pessoas2 = ["Juca","Ludimilo","Maria","Obito"]
 
 dicionario = dict()
 
-for i in range(len(pessoas)):
+for i in range(len(pessoas2)):
 	for k in g.maxBPM():
 		if i == k:
-			dicionario[pessoas[i]] = linguagens[g.maxBPM().index(k)]
+			dicionario[pessoas2[i]] = linguagens[g.maxBPM().index(k)]
 
 print(dicionario)
 
