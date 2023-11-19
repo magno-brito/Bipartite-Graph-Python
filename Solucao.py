@@ -4,10 +4,12 @@ class GFG:
 		self.graph = graph 
 		self.ppl = len(graph)
 		self.jobs = len(graph[0])
+		self.vezes = 0
 
 	def bpm(self, u, matchR, seen):
+
 		for v in range(self.jobs):
-			if self.graph[u][v] and seen[v] == False:
+			if (self.graph[u][v] != 0) and seen[v] == False:
 				seen[v] = True
 				if matchR[v] == -1 or self.bpm(matchR[v], 
 											matchR, seen):
@@ -23,9 +25,7 @@ class GFG:
 			seen = [False] * self.jobs
 			if self.bpm(i, matchR, seen):
 				result += 1
-				print(seen)
-		print(matchR)
-		
+
 		return matchR
 
 
@@ -41,10 +41,16 @@ grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
 grafo2 = [["Java","Python",0,0,0],[0,"Python",0,0,0],[0,0,"C#","C++",0],["Java",0,0,0,"PHP"]]
 
 grafo3 = [
-	["Pyhont", 0, "C++"], 
-	["Python","Java","C++"],
-	["Python","Java",0],
-	[0,"Java","C++"]
+	["Pyhont", "Java", 0], 
+	["Python","Java","C#"],
+	[0,"Java","C#"],
+	["Python",0,"C#"]
+	]
+
+grafo3A = [
+	["Pyhont", "Java"], 
+	["Python",0],
+	[0,"Java",],
 	]
 
 grafo4 = [ 
@@ -61,16 +67,16 @@ grafo4 = [
 # Ordem das linguagens -> Java Python C# C++ PHP Js
 # Cada indice do vetor grafo3 corresponde a uma pessoa: index[0] = a; index[1] = b
 
-g = GFG(grafo3)
+g = GFG(grafo3A)
 
 print ("Combinação")
 print(g.maxBPM())
 
 
 #-----------------------------------------
-linguagens = ["Java", "Python", "C#", "C++", "PHP", "Js"]
+linguagens = ["Python", "Java", "C#", "C++", "PHP", "Js"]
 pessoas1 = ["A", "B","C","D","E","F","G","H", "Juca","Ludimilo","Maria","Obito"]
-pessoas2 = ["Juca","Ludimilo","Maria","Obito"]
+pessoas2 = ["Maria","Ludimilo","Obito","Juca"]
 
 dicionario = dict()
 
