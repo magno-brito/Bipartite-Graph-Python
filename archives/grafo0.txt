@@ -1,4 +1,4 @@
-Juca - Java Python
-Ludimilo - Python
-Maria - C# C++
-Obito - Java PHP
+Maria - Python Java
+Ludimilo - Python C++ Java
+Obito - Java C++
+Juca - Python C++

@@ -353,7 +353,7 @@ botaoC = customtkinter.CTkButton(
     width=130,
     height=30,
     text="Grafo Simples",
-    command= lambda:mostra_problema_antes_solucao("grafoMenor"),
+    command= lambda:mostra_problema_antes_solucao("grafoA"),
     hover_color="green")
 
 put_canvas1(botaoC,50, 200)
