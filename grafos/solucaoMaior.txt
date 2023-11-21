@@ -1,6 +1,6 @@
 A - C#
-B - Python
-C - Java
+B - Java
+C - Python
 D - C++
 E - PHP
 G - Js
