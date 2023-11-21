@@ -27,31 +27,18 @@ class GFG:
 				result += 1
 
 		return matchR
+	
+#-------------------------------------------------------------------------------
 
-
-bpGraph =[[0, 1, 1, 0, 0, 0],
-		[1, 0, 0, 1, 0, 0],
-		[0, 0, 1, 0, 0, 0],
-		[0, 0, 1, 1, 0, 0],
-		[0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 1]]
-
-grafo1 = [[0, 1, 2, 0], [1, 0, 0, 1]]
-
-grafo2 = [["Java","Python",0,0,0],[0,"Python",0,0,0],[0,0,"C#","C++",0],["Java",0,0,0,"PHP"]]
+# Grafo menor
 
 grafo3 = [
-	["Pyhont", "Java", 0], 
-	["Python","Java","C#"],
-	[0,"Java","C#"],
-	["Python",0,"C#"]
-	]
-
-grafo3A = [
 	["Pyhont", "Java"], 
 	["Python",0],
 	[0,"Java",],
 	]
+
+# Grafo maior
 
 grafo4 = [ 
 	["Java","Python","C#", 0, 0, 0], 
@@ -64,19 +51,22 @@ grafo4 = [
 	[0,0,0,0,"PHP","Js"]
 	]
 
-# Ordem das linguagens -> Java Python C# C++ PHP Js
+# Ordem das linguagens -> Python Java C# C++ PHP Js
 # Cada indice do vetor grafo3 corresponde a uma pessoa: index[0] = a; index[1] = b
 
-g = GFG(grafo3A)
+g = GFG(grafo3)
 
-print ("Combinação")
+print ("Grafo menor")
 print(g.maxBPM())
 
 
 #-----------------------------------------
+# Esta parte é para atribuir cada nome de pessoa e linguagem a list retornada da classe GFG
+# A ordem dos nomes das linguagens e das pessoas importa na hora da atribuição.
+
 linguagens = ["Python", "Java", "C#", "C++", "PHP", "Js"]
-pessoas1 = ["A", "B","C","D","E","F","G","H", "Juca","Ludimilo","Maria","Obito"]
-pessoas2 = ["Maria","Ludimilo","Obito","Juca"]
+pessoas1 = ["A", "B","C","D","E","F","G","H", "Maria","Juca", "Obito", "Ludimilo"]
+pessoas2 = ["Maria","Juca","Obito","Ludimilo"]
 
 dicionario = dict()
 
@@ -87,8 +77,27 @@ for i in range(len(pessoas2)):
 
 print(dicionario)
 
+#-----------------------------------------------------
 
-	
+g = GFG(grafo4)
+
+print ("Grafo maior")
+print(g.maxBPM())
+
+
+linguagens = ["Python", "Java", "C#", "C++", "PHP", "Js"]
+pessoas1 = ["A", "B","C","D","E","F","G","H", "Juca","Ludimilo","Maria","Obito"]
+pessoas2 = ["Maria","Juca","Obito","Ludimilo"]
+
+dicionario = dict()
+
+for i in range(len(pessoas1)):
+	for k in g.maxBPM():
+		if i == k:
+			dicionario[pessoas1[i]] = linguagens[g.maxBPM().index(k)]
+
+print(dicionario)
+
 
 
 

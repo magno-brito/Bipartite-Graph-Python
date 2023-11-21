@@ -1,4 +1,0 @@
-Maria - Python Java
-Ludimilo - Python C++ Java
-Obito - Java C++
-Juca - Python C++

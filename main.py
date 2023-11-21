@@ -20,7 +20,6 @@ customtkinter.set_default_color_theme("dark-blue")
 root = customtkinter.CTk()
 
 root.title("Magno e Sofia")
-root.geometry("1366x768")
 
 data_addedLabel = data_addedSolucao = data_addedProblema = False
 
@@ -80,7 +79,7 @@ def mostrar_grafo():
     center_y = canvas_height // 2
 
 
-    canvas = FigureCanvasTkAgg(fig, master=canvas2)  # A tk.DrawingArea.
+    canvas = FigureCanvasTkAgg(fig, master=canvas2)  
     canvas.draw()
     canvas_widget = canvas.get_tk_widget()
     canvas_widget.grid(row=0, column=0)
@@ -88,20 +87,18 @@ def mostrar_grafo():
 
 def mostrar_exemplo():
 
-    fig = Figure(figsize=(6, 6), dpi=100)
+    fig = Figure(figsize=(8, 8), dpi=100)
     ax = fig.add_subplot(111)
     ax.margins(0.11)
     
     B = nx.Graph()
-    B.add_nodes_from([1,2,3,4], bipartite=0) # Add the node attribute "bipartite"
+    B.add_nodes_from([1,2,3,4], bipartite=0) 
     B.add_nodes_from(['a','b','c'], bipartite=1)
     B.add_edges_from([(1,'a'), (1,'b'), (2,'b'), (2,'c'), (3,'c'), (4,'a')])
 
-    # Separate by group
     l, r = nx.bipartite.sets(B)
     pos = {}
 
-    # Update position for node from each group
     pos.update((node, (1, index)) for index, node in enumerate(l))
     pos.update((node, (2, index)) for index, node in enumerate(r))
 
@@ -123,7 +120,7 @@ def mostrar_exemplo():
     center_y = canvas_height // 2
 
 
-    canvas = FigureCanvasTkAgg(fig, master=canvas2)  # A tk.DrawingArea.
+    canvas = FigureCanvasTkAgg(fig, master=canvas2)  
     canvas.draw()
     canvas_widget = canvas.get_tk_widget()
     canvas_widget.grid(row=0, column=0)
@@ -133,7 +130,7 @@ def mostrar_exemplo():
 
 def mostra_problema_antes_solucao(arquivo):
     #-------------------------------------------------#
-    f = open("archives/{}.txt".format(arquivo))
+    f = open("grafos/{}.txt".format(arquivo))
     lines = f.read().split("\n")
     vetor = list()
 
@@ -192,12 +189,12 @@ def mostra_problema_antes_solucao(arquivo):
     pos.update((x, y * 4.5) for x, y in pos.items() if x in conjunto1)
 
     
-    fig, ax = plt.subplots(figsize=(9, 9), dpi=100)
+    fig, ax = plt.subplots(figsize=(8, 8), dpi=100)
     ax.margins(0.11)
 
 
     for node in conjunto2:
-        path = "languages/" + node.lower() + ".png"
+        path = "linguagens/" + node.lower() + ".png"
         img = plt.imread(path)
         imgbox = OffsetImage(img, zoom=0.25)
         imgbox.image.axes = plt.gca()
@@ -205,7 +202,7 @@ def mostra_problema_antes_solucao(arquivo):
         plt.gca().add_artist(ab)
 
     for node in conjunto1:
-        path = "people/" + node.lower() + ".png"
+        path = "pessoas/" + node.lower() + ".png"
         img = plt.imread(path)
         imgbox = OffsetImage(img, zoom=0.25)
         imgbox.image.axes = plt.gca()
@@ -246,7 +243,7 @@ def mostra_problema_antes_solucao(arquivo):
     center_y = canvas_height // 2
 
 
-    canvas = FigureCanvasTkAgg(fig, master=canvas2)  # A tk.DrawingArea.
+    canvas = FigureCanvasTkAgg(fig, master=canvas2)  
     canvas.draw()
     canvas_widget = canvas.get_tk_widget()
     canvas_widget.grid(row=0, column=0)
@@ -255,34 +252,33 @@ def mostra_problema_antes_solucao(arquivo):
 
 #------------------------------------------------------------------------#
 def desenhar_3D():
-    # The graph to visualize
+   
     m, n = 10, 15
     G = nx.complete_bipartite_graph(m, n)
-    # 3d spring layout
+   
     pos = nx.spring_layout(G, dim=3, seed=779)
-    # Extract node and edge positions from the layout
+   
     node_xyz = np.array([pos[v] for v in sorted(G)])
     edge_xyz = np.array([(pos[u], pos[v]) for u, v in G.edges()])
 
-    # Create the 3D figure
-    fig = plt.figure(figsize=(8, 8), dpi=100)  # Adjust the size as needed
+   
+    fig = plt.figure(figsize=(8, 8), dpi=100)  
     ax = fig.add_subplot(111, projection="3d")
 
-    # Plot the nodes - alpha is scaled by "depth" automatically
     ax.scatter(*node_xyz.T, s=100, ec="w")
 
-    # Plot the edges
+    
     for vizedge in edge_xyz:
         ax.plot(*vizedge.T, color="tab:gray")
 
     def _format_axes(ax):
         """Visualization options for the 3D axes."""
-        # Turn gridlines off
+        
         ax.grid(False)
-        # Suppress tick labels
+        
         for dim in (ax.xaxis, ax.yaxis, ax.zaxis):
             dim.set_ticks([])
-        # Set axes labels
+        
         ax.set_xlabel("x")
         ax.set_ylabel("y")
         ax.set_zlabel("z")
@@ -290,18 +286,13 @@ def desenhar_3D():
     _format_axes(ax)
     fig.tight_layout()
 
-    # Create a FigureCanvasTkAgg widget
+   
     canvas = FigureCanvasTkAgg(fig, master=canvas2)
     canvas.draw()
-
-    # Get the tkinter canvas widget
     canvas_widget = canvas.get_tk_widget()
-
-    # Place the 3D plot inside canvas2
     canvas2.create_window(100, 10, anchor="nw", window=canvas_widget)
 
 #------------------------------------------------------------------------#
-
 
 
 def limpar_canva():
@@ -353,10 +344,20 @@ botaoC = customtkinter.CTkButton(
     width=130,
     height=30,
     text="Grafo Simples",
-    command= lambda:mostra_problema_antes_solucao("grafoA"),
+    command= lambda:mostra_problema_antes_solucao("grafoMenor"),
     hover_color="green")
 
 put_canvas1(botaoC,50, 200)
+
+botaoC = customtkinter.CTkButton(
+    root, 
+    width=130,
+    height=30,
+    text="Solução Simples",
+    command= lambda:mostra_problema_antes_solucao("solucaoMenor"),
+    hover_color="green")
+
+put_canvas1(botaoC,50, 260)
 
 
 botaoD = customtkinter.CTkButton(
@@ -367,18 +368,18 @@ botaoD = customtkinter.CTkButton(
     text="Grafo Maior",
     command= lambda:mostra_problema_antes_solucao("grafoMaior"))
 
-put_canvas1(botaoD,50, 260)
+put_canvas1(botaoD,50, 320)
 
 botaoE = customtkinter.CTkButton(
     root, 
     width=130,
     height=30,
     hover_color="green",
-    text="Solução",
-    command= lambda: mostra_problema_antes_solucao("result")
+    text="Solução Maior",
+    command= lambda: mostra_problema_antes_solucao("solucaoMaior")
    )
 
-put_canvas1(botaoE,50, 320)
+put_canvas1(botaoE,50, 380)
 
 botaoF = customtkinter.CTkButton(
     root, 
@@ -389,7 +390,7 @@ botaoF = customtkinter.CTkButton(
     command= lambda: desenhar_3D()
    )
 
-put_canvas1(botaoF,50, 380)
+put_canvas1(botaoF,50, 440)
 
 
 botaoLimpar = customtkinter.CTkButton(
@@ -400,10 +401,7 @@ botaoLimpar = customtkinter.CTkButton(
     hover_color="green",
     command=limpar_canva)
 
-put_canvas1(botaoLimpar,50, 620)
-
-
-
+put_canvas1(botaoLimpar,50, 600)
 
 
 
